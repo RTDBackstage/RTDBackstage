@@ -21,7 +21,7 @@
 			<table class="table">
 				<tr>
 					<td width="200" class="va-t"><ul id="treeDemo" class="ztree"></ul></td>
-					<td class="va-t"><iframe ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="product-category-add.html"></iframe></td>
+					<td class="va-t"><iframe ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="product-category-add.jsp"></iframe></td>
 				</tr>
 			</table>
 		</article>
@@ -58,7 +58,7 @@ var setting = {
 				zTree.expandNode(treeNode);
 				return false;
 			} else {
-				demoIframe.attr("src",treeNode.file + ".html");
+				demoIframe.attr("src",treeNode.file + ".jsp");
 				return true;
 			}
 		}
