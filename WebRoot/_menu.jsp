@@ -8,7 +8,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="article-list.html" title="资讯管理">资讯管理</a></li>
+					<li><a href="article-list.jsp" title="资讯管理">资讯管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -17,7 +17,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="picture-list.html" title="图片管理">图片管理</a></li>
+					<li><a href="picture-list.jsp" title="图片管理">图片管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -26,9 +26,9 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="product-brand.html" title="品牌管理">品牌管理</a></li>
-					<li><a href="product-category.html" title="分类管理">分类管理</a></li>
-					<li><a href="product-list.html" title="产品管理">产品管理</a></li>
+					<li><a href="product-brand.jsp" title="品牌管理">品牌管理</a></li>
+					<li><a href="product-category.jsp" title="分类管理">分类管理</a></li>
+					<li><a href="product-list.jsp" title="产品管理">产品管理</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -38,7 +38,7 @@
 			<dd>
 				<ul>
 					<li><a href="http://h-ui.duoshuo.com/admin/" title="评论列表">评论列表</a></li>
-					<li><a href="feedback-list.html" title="意见反馈">意见反馈</a></li>
+					<li><a href="feedback-list.jsp" title="意见反馈">意见反馈</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -47,13 +47,13 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="member-list.html" title="会员列表">会员列表</a></li>
-					<li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
-					<li><a href="member-level.html" title="等级管理">等级管理</a></li>
-					<li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
-					<li><a href="member-record-browse.html" title="浏览记录">浏览记录</a></li>
-					<li><a href="member-record-download.html" title="下载记录">下载记录</a></li>
-					<li><a href="member-record-share.html" title="分享记录">分享记录</a></li>
+					<li><a href="member-list.jsp" title="会员列表">会员列表</a></li>
+					<li><a href="member-del.jsp" title="删除的会员">删除的会员</a></li>
+					<li><a href="member-level.jsp" title="等级管理">等级管理</a></li>
+					<li><a href="member-scoreoperation.jsp" title="积分管理">积分管理</a></li>
+					<li><a href="member-record-browse.jsp" title="浏览记录">浏览记录</a></li>
+					<li><a href="member-record-download.jsp" title="下载记录">下载记录</a></li>
+					<li><a href="member-record-share.jsp" title="分享记录">分享记录</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -62,9 +62,9 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="admin-role.html" title="角色管理">角色管理</a></li>
-					<li><a href="admin-permission.html" title="权限管理">权限管理</a></li>
-					<li><a href="admin-list.html" title="管理员列表">管理员列表</a></li>
+					<li><a href="admin-role.jsp" title="角色管理">角色管理</a></li>
+					<li><a href="admin-permission.jsp" title="权限管理">权限管理</a></li>
+					<li><a href="admin-list.jsp" title="管理员列表">管理员列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -73,13 +73,13 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="charts-1.html" title="折线图">折线图</a></li>
-					<li><a href="charts-2.html" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="charts-3.html" title="区域图">区域图</a></li>
-					<li><a href="charts-4.html" title="柱状图">柱状图</a></li>
-					<li><a href="charts-5.html" title="饼状图">饼状图</a></li>
-					<li><a href="charts-6.html" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="charts-7.html" title="3D饼状图">3D饼状图</a></li>
+					<li><a href="charts-1.jsp" title="折线图">折线图</a></li>
+					<li><a href="charts-2.jsp" title="时间轴折线图">时间轴折线图</a></li>
+					<li><a href="charts-3.jsp" title="区域图">区域图</a></li>
+					<li><a href="charts-4.jsp" title="柱状图">柱状图</a></li>
+					<li><a href="charts-5.jsp" title="饼状图">饼状图</a></li>
+					<li><a href="charts-6.jsp" title="3D柱状图">3D柱状图</a></li>
+					<li><a href="charts-7.jsp" title="3D饼状图">3D饼状图</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -88,11 +88,11 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="system-base.html" title="系统设置">系统设置</a></li>
-					<li><a href="system-category.html" title="栏目管理">栏目管理</a></li>
-					<li><a href="system-data.html" title="数据字典">数据字典</a></li>
-					<li><a href="system-shielding.html" title="屏蔽词">屏蔽词</a></li>
-					<li><a href="system-log.html" title="系统日志">系统日志</a></li>
+					<li><a href="system-base.jsp" title="系统设置">系统设置</a></li>
+					<li><a href="system-category.jsp" title="栏目管理">栏目管理</a></li>
+					<li><a href="system-data.jsp" title="数据字典">数据字典</a></li>
+					<li><a href="system-shielding.jsp" title="屏蔽词">屏蔽词</a></li>
+					<li><a href="system-log.jsp" title="系统日志">系统日志</a></li>
 				</ul>
 			</dd>
 		</dl>

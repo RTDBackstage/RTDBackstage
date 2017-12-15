@@ -133,7 +133,7 @@
 					<div class="row cl">
 						<label class="form-label col-xs-4 col-sm-3">首页文件名：</label>
 						<div class="formControls col-xs-8 col-sm-9">
-							<input type="text" class="input-text" value="index.html" style="width:200px;">
+							<input type="text" class="input-text" value="index.jsp" style="width:200px;">
 						</div>
 						<div class="col-3"> </div>
 					</div>
