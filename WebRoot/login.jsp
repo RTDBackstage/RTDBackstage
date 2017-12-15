@@ -18,7 +18,8 @@
 				</div>
 			</div>
 			<div class="row cl">
-				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+				<label class="form-label col-xs-3">
+				<i class="Hui-iconfont">&#xe60e;</i></label>
 				<div class="formControls col-xs-8">
 					<input id="" name="" type="password" placeholder="密码" class="input-text size-L">
 				</div>
