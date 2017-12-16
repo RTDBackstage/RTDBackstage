@@ -7,7 +7,7 @@
 <body>
 
 <article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal" id="form-admin-add">
+	<form action="index.jsp" href="index.jsp" method="post" class="form form-horizontal" id="form-admin-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
 			<div class="formControls col-xs-8 col-sm-9">
