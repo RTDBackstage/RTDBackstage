@@ -21,6 +21,12 @@ public class MenuTest {
 	}
 	
 	@Test
+	public void menuName(){
+		List<String> menunames = menuService.menuName(2);
+		System.out.println(menunames.toString());
+	}
+	
+	@Test
 	public void loaddTopeMenu(){
 		List<Menu> menus = menuService.loadTopMenu();
 		for(Menu menu :menus){

@@ -22,6 +22,10 @@ public class MenuService {
 		return menuMapper.loadAccountMenu(accountid);
 	}
 	
+	public List<String> menuName(Integer menuname){
+		return menuMapper.MenuName(menuname);
+	}
+	
 	public List<Menu> loadTopMenu(){
 		return menuMapper.loadTopMenu();
 	}
@@ -29,5 +33,6 @@ public class MenuService {
 	public List<Menu> loadChildMenu(Integer parentid){
 		return menuMapper.loadChildMenu(parentid);
 	}
+	
 	
 }

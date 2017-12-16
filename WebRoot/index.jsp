@@ -200,9 +200,6 @@
 <%@ include file="_footer.jsp" %>
 <!--/_footer /作为公共模版分离出去-->
 
-<!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="js/index.js"/>
-<!--/请在上方写此页面业务相关的脚本-->
 
 </body>
 </html>

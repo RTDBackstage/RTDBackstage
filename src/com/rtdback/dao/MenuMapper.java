@@ -15,6 +15,9 @@ public interface MenuMapper {
 	@Select("select rm.menuid from role_menu rm,role r,account_role ar WHERE ar.roleid = r.id and r.id = rm.roleid and ar.accountid = #{accountid}")
 	List<Integer> loadAccountMenu(@Param("accountid") Integer accountid);
 	
+	@Select("select m.name from account a,account_role ar,role_menu rm,menu m where ar.accountid=a.id and ar.roleid=rm.roleid and rm.menuid=m.id and a.id=#{menuname} order by seq;")
+	List<String> MenuName(@Param("menuname") Integer menuname); 
+	
 	//加载父节点名
 	@Select("select * from menu where parentid is NULL order by seq")
 	List<Menu> loadTopMenu();
