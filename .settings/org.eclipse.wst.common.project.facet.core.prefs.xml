@@ -1,6 +1,7 @@
 <root>
   <facet id="me.spring">
     <node name="libprov">
+<<<<<<< HEAD
       <attribute name="provider-id" value="spring-no-op-library-provider"/>
     </node>
   </facet>
@@ -8,4 +9,14 @@
   <facet id="java"/>
   <facet id="jst.web.jstl"/>
   <facet id="jst.web"/>
+=======
+      <attribute name="config-id" value="me.spring_4.1"/>
+      <attribute name="copy-tlds" value="true"/>
+      <attribute name="nested-config-me.spring_4.1-security" value="none"/>
+      <attribute name="nested-config-me.spring_4.1-webflow" value="none"/>
+      <attribute name="provider-id" value="me-spring-library-provider"/>
+      <attribute name="version-id" value="4.1"/>
+    </node>
+  </facet>
+>>>>>>> branch 'master' of https://github.com/RTDBackstage/RTDBackstage.git
 </root>
