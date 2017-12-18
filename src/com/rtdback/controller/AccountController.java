@@ -34,10 +34,18 @@ public class AccountController {
 		ArrayList<String> logintext = new ArrayList<String>();
 		if(account != null){
 			logintext.add("登陆成功");
-			session.setAttribute(Constants.USER_IN_SESSION, account);
+			session.setAttribute("account", account);
 		}else {
 			logintext.add("登陆失败，请重新登陆");
 		}
 		return  ResponseEntity.ok(logintext);
 	}
+	
+	@RequestMapping("/accountController_quit")
+	  public ResponseEntity<?> quit(HttpServletRequest request) {
+	    HttpSession session = request.getSession();
+	    session.removeAttribute("account");
+	    session.invalidate();
+	    return ResponseEntity.ok("redirect:/login.jsp");
+	  }
 }

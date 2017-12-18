@@ -1,5 +1,6 @@
 package com.rtdback.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -7,12 +8,28 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.rtdback.node.MenuNode;
 import com.rtdback.pojo.Menu;
 import com.rtdback.service.MenuService;
 
 public class MenuTest {
 
 	private MenuService menuService;
+	
+	//根据id查询父菜单
+	@Test
+	public void loadIdMenu(){
+		List<Integer> list = menuService.loadAccountMenu(2);
+		
+		List<Menu> menus =  menuService.loadTopMenu();
+		
+		List<MenuNode> nodelist= new ArrayList<MenuNode>();
+		for(Menu menu :menus){
+			if (list.contains(menu.getId())) {
+				
+			}
+		}
+	}
 	
 	@Test
 	public void loadAccountMenu(){

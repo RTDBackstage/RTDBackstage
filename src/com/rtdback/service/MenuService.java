@@ -34,5 +34,10 @@ public class MenuService {
 		return menuMapper.loadChildMenu(parentid);
 	}
 	
+	//根据id查询父菜单
+	public List<Menu> loadIdTopMenu(Integer id){
+		return menuMapper.loadIdTopMenu(id);
+	}
+	
 	
 }

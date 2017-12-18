@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
 		<div class="container-fluid cl"> 
@@ -26,12 +27,12 @@
 				<ul class="cl">
 					<li>超级管理员</li>
 					<li class="dropDown dropDown_hover"> 
-					<a href="#" class="dropDown_A">用户${account.username}
+					<a href="#" class="dropDown_A">${sessionScope.account.username}
 					<i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
 							<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
 							<li><a href="login.jsp">切换账户</a></li>
-							<li><a href="#">退出</a></li>
+							<li><a onclick="quit()">退出</a></li>
 						</ul>
 					</li>
 					<li id="Hui-msg"> <a href="#" title="消息">
@@ -54,3 +55,18 @@
 		</div>
 	</div>
 </header>
+<script>
+	function quit(){
+		
+		var flag = confirm("真的要退出系统吗？");
+		if (flag)
+			window.location = "accountController_quit";
+	}
+	
+
+
+</script>
+
+
+
+

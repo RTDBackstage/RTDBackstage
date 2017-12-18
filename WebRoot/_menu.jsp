@@ -5,24 +5,16 @@
 	const URL = "http://localhost:8080/RTDBackstage/"
 	
 	$(() => {
-		/* document.getElementsByTagName("dl").style.display="none"; 
-		var dl = document.getElementsByTagName("dl");
-		dl.style.visibility="hidden"*/
-		$("dl").style.visibility="hidden";/* '设置EleId标签隐藏 */
-		//$("dl").style.display="none";/* 设置EleId标签隐藏 */
-		
-		/* ${dl}.empty(); */
-		/* ${dl}.hide(); */
+		//$("dl").style.display="none";
+		$("dl").css("display","none");
 		
 		// 查询所有数据
 		$.ajax({
-			url : URL + "menu/topMenu",
+			url : URL + "menu/topMenu/2",
 			type : "get",
 			dataType : "json",
 			success : function(data) {
 					console.log(data)
-					
-					/* $("#menu-article").style.display="none"; */
 					
 					$.each(data,(i,item)=>{
 			var text = `
@@ -39,12 +31,9 @@
 				</dl>
 						`
 						
-						/* $("#tree").append(text) */
-						/* var ab = document.getElementsByTagName("ab");
-						ab[i].append(item.name) */
-						/* $("dl")[i].style.display=block; */
-						
-						/* $("ab")[i].append(item.name) */
+						$("dl")[i].style.display="block";
+						//$("dl").css("display","block");					
+						$("ab")[i].append(item.name)
 						
 					})
 				}
