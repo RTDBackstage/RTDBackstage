@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rtdback.dao.FundMapper">
+	<!-- 缓存 -->
+	<cache eviction="LRU" flushInterval="60000" size="512" readOnly="true"/>
+
+	<!-- Fund 结果集 -->
+	<resultMap type="com.rtdback.pojo.Fund" id="funds">
+		<id property="id" column="id"/>
+		<result property="logo" column="logo"/>
+		<result property="name" column="name"/>
+		<result property="type" column="type"/>
+		<result property="firm" column="firm"/>
+		<result property="guarantor" column="guarantor"/>
+		<result property="state" column="state"/>
+		<result property="annualRate" column="annualRate"/>
+		<result property="term" column="term"/>
+		<result property="sum" column="sum"/>
+		<result property="credit" column="credit"/>
+		<result property="purpose" column="purpose"/>
+		<result property="template" column="template"/>
+		<result property="time" column="time"/>
+		<result property="tempsum" column="tempsum"/>
+	</resultMap>
+	
+	<sql id="head">
+		select id,logo,name,type,firm,guarantor,state,annualRate,term,sum,credit,
+		purpose,template,time,tempsum from Fund inner join (
+		select id from Fund where type = #{type} and state = '融资中' order by annualRate desc
+	</sql>
+	
+	<sql id="Top3">
+		limit 0,3
+		)as lim using (id)
+	</sql>
+	
+	<sql id="Top4">
+		limit 0,4
+		)as lim using (id)
+	</sql>
+	
+	<select id="indexShowTop3" resultMap="funds">
+		<include refid="head"/>
+		<include refid="Top3"/>
+	</select>
+	
+	<select id="indexShowTop4" resultMap="funds">
+		<include refid="head"/>
+		<include refid="Top4"/>
+	</select>
+	
+	<!-- 分页  -->
+	<select id="findByTypePagerTotal" resultType="long">
+		select count(id) from Fund where type = #{type} and state = '融资中'
+	</select>
+	
+	<select id="findByTypePager" resultMap="funds">
+		select id,logo,name,type,firm,guarantor,state,annualRate,term,sum,credit,
+		purpose,template,time,tempsum from Fund inner join (
+		select id from Fund where type = #{type} and state = '融资中' order by #{sort} #{order}
+		limit #{page},#{row}
+		)as lim using (id)
+	</select>
+</mapper>
