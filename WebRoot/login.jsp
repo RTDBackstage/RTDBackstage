@@ -10,7 +10,7 @@
 <div class="header"></div>
 <div class="loginWraper">
 	<div id="loginform" class="loginBox">
-		<form class="form form-horizontal" action="index.jsp" method="post">
+		<div class="form form-horizontal" >
 			<div class="row cl">
 				<label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
 				<div class="formControls col-xs-8">
@@ -31,20 +31,22 @@
 					<a id="kanbuq" href="javascript:;">看不清，换一张</a>
 				</div>
 			</div>
-			<div class="row cl">
+			<!-- <div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
 					<label for="online">
 						<input type="checkbox" name="online" id="online" value="">
 						使我保持登录状态</label>
 				</div>
-			</div>
+			</div> -->
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
-					<input id="btnlogin" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-					<input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+					<button id="btnlogin" type="button" class="btn btn-success radius size-L">&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;</button>
+					<button id="btnreset" class="btn btn-default radius size-L">&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;</button>
+					<!-- <input id="btnlogin" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+					<input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;"> -->
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>
 <div class="footer">Copyright 你的公司名称 by H-ui.admin.page.v3.0</div>
@@ -59,13 +61,23 @@
 			"account":$("#account").val(),
 			"password":$("#password").val(),
 		} */
-		
+		console.log("点击登陆按钮"+$("#account").val()+".."+$("#password").val())
 		$.ajax({
-			url:URL + "account"+$("#account").val()+"&"+$("#password").val(),
+			url:URL + "account/login/"+$("#account").val()+"&"+$("#password").val(),
 			type:"get",
+			async : true,
 			dataType:"json",
-			success:function(msg){
-				console.log(msg)
+			success:function(data){
+				
+				console.log(data)
+				if(data =="登陆成功"){
+					window.alert(data)
+					window.location.href="index.jsp"
+				}else if(data == "登陆失败，请重新登陆"){
+					window.alert(data)
+					window.location.href="login.jsp"
+				}
+				
 				
 			}
 			

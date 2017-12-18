@@ -19,12 +19,8 @@ public class AccountService {
 	@Resource(name ="accountMapper")
 	private AccountMapper accountMapper;
 	
-	public String  login(String name,String password){
-		Account account = accountMapper.login(name, password);
-		if (account == null) {
-			return "loginerror";
-		}
-		return "loginsuccess";
+	public Account login(String name,String password){
+		return accountMapper.login(name, password);
 	}
 	
 }
