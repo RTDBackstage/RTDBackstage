@@ -10,7 +10,7 @@
 		
 		// 查询所有数据
 		$.ajax({
-			url : URL + "menu/topMenu/2",
+			url : URL + "menu/index/${sessionScope.account.id}",
 			type : "get",
 			dataType : "json",
 			success : function(data) {
@@ -39,11 +39,6 @@
 				}
 		})
 	})
-	
-	/* $("dt").click(function(){
-		$(this).addClass('selected');
-		$("dd").show();
-	}) */
 	
 </script>
 

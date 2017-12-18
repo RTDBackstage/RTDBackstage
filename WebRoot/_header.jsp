@@ -60,7 +60,13 @@
 		
 		var flag = confirm("真的要退出系统吗？");
 		if (flag)
-			window.location = "accountController_quit";
+			$.ajax({
+				url:"accountController_quit",
+				success:function(data){
+					window.location.href=data
+				}
+				
+			})
 	}
 	
 

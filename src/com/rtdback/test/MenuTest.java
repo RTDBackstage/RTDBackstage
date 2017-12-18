@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.rtdback.node.MenuNode;
 import com.rtdback.pojo.Menu;
+import com.rtdback.pojo.MenuNode;
 import com.rtdback.service.MenuService;
 
 public class MenuTest {
@@ -26,10 +26,24 @@ public class MenuTest {
 		List<MenuNode> nodelist= new ArrayList<MenuNode>();
 		for(Menu menu :menus){
 			if (list.contains(menu.getId())) {
-				
+				MenuNode node = new MenuNode();
+				node.setName(menu.getName());
+				node.setParentid(menu.getId());
+				node.setSeq(menu.getSeq());
+				node.setSeq(menu.getSeq());
+				node.setUrl(menu.getUrl());
+				nodelist.add(node);
 			}
 		}
+		
+		for(MenuNode menuNode:nodelist){
+			System.out.println(menuNode.getName());
+		}
+		
+		
 	}
+	
+	
 	
 	@Test
 	public void loadAccountMenu(){

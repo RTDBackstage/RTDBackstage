@@ -46,6 +46,6 @@ public class AccountController {
 	    HttpSession session = request.getSession();
 	    session.removeAttribute("account");
 	    session.invalidate();
-	    return ResponseEntity.ok("redirect:/login.jsp");
+	    return ResponseEntity.ok("login.jsp");
 	  }
 }
