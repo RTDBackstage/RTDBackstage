@@ -26,7 +26,7 @@ public class AccountController {
 	private AccountService accountService;
 	
 	/**
-	 * 
+	 * localhost:8080/RTDBackstage/account/add
 	 * @param account
 	 * @return
 	 */
