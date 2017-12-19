@@ -7,7 +7,7 @@
 
 <body>
 	<article class="cl pd-20">
-	<form action="" method="post" class="form form-horizontal"
+	<form  class="form form-horizontal"
 		id="form-member-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span
@@ -15,6 +15,14 @@
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder=""
 					id="username" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="password" name="password">
 			</div>
 		</div>
 		<div class="row cl">
@@ -37,6 +45,14 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>年龄：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="age" name="age">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
 				class="c-red">*</span>手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder=""
@@ -52,7 +68,15 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">附件：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>真实姓名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="name" name="name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">头像：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<span class="btn-upload form-group"> <input
 					class="input-text upload-url" type="text" name="uploadfile"
@@ -65,32 +89,96 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">所在城市：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>身份证：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box"> <select class="select" size="1"
-					name="city">
-						<option value="" selected>请选择城市</option>
-						<option value="1">北京</option>
-						<option value="2">上海</option>
-						<option value="3">广州</option>
-				</select>
-				</span>
+				<input type="text" class="input-text" value="" placeholder=""
+					id="card" name="card">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>余额：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="beizhu" cols="" rows="" class="textarea"
-					placeholder="说点什么...最少输入10个字符" onKeyUp="textarealength(this,100)"></textarea>
-				<p class="textarea-numberbar">
-					<em class="textarea-length">0</em>/100
-				</p>
+				<input type="text" class="input-text" value="" placeholder=""
+					id="remaining" name="remaining">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>邀请码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="askcode" name="askcode">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>邀请累计：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="asknum" name="asknum">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>支付密码：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="paynum" name="paynum">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保问题1：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="question1" name="question1">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保答案1：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="answer1" name="answer1">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保问题2：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="question2" name="question2">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保答案2：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="answer2" name="answer2">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保问题3：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="question3" name="question3">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span
+				class="c-red">*</span>密保答案3：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder=""
+					id="answer3" name="answer3">
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit"
-					value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<button id="btnadd" class="btn btn-primary radius" type="button">&nbsp;&nbsp;提交&nbsp;&nbsp</button>
 			</div>
 		</div>
 	</form>
@@ -101,6 +189,8 @@
 	<!--/_footer /作为公共模版分离出去-->
 
 	<!--请在下方写此页面业务相关的脚本-->
+	<script type="js/member-add.js"/>
+	
 	<script type="text/javascript"
 		src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
 	<script type="text/javascript"
