@@ -26,40 +26,39 @@
 	
 	<sql id="head">
 		select id,logo,name,type,firm,guarantor,state,annualRate,term,sum,credit,
-		purpose,template,time,tempsum from Fund inner join (
-		select id from Fund where type = #{type} and state = '融资中' order by annualRate desc
+		purpose,template,time,tempsum from Fund
 	</sql>
 	
-	<sql id="Top3">
-		limit 0,3
-		)as lim using (id)
+	<sql id="where">
+		<where>1=1
+			<if test="logmin != null and logmax != null and logmax != ''">
+				and time between #{logmin} and #{logmax}
+			</if>
+			<if test="type != null and type!= ''">
+				and type like concat('%',concat(#{type},'%'))
+			</if>
+			<if test="firm != null and firm != ''">
+				and firm like concat('%',concat(#{firm},'%'))
+			</if>
+		</where>
 	</sql>
 	
-	<sql id="Top4">
-		limit 0,4
-		)as lim using (id)
+	<sql id="orderby">
+		order by #{sort} #{order}
 	</sql>
 	
-	<select id="indexShowTop3" resultMap="funds">
-		<include refid="head"/>
-		<include refid="Top3"/>
-	</select>
-	
-	<select id="indexShowTop4" resultMap="funds">
-		<include refid="head"/>
-		<include refid="Top4"/>
-	</select>
-	
-	<!-- 分页  -->
-	<select id="findByTypePagerTotal" resultType="long">
-		select count(id) from Fund where type = #{type} and state = '融资中'
-	</select>
-	
-	<select id="findByTypePager" resultMap="funds">
-		select id,logo,name,type,firm,guarantor,state,annualRate,term,sum,credit,
-		purpose,template,time,tempsum from Fund inner join (
-		select id from Fund where type = #{type} and state = '融资中' order by #{sort} #{order}
+	<sql id="limit">
 		limit #{page},#{row}
-		)as lim using (id)
+	</sql>
+	
+	<select id="findByParam" resultMap="funds">
+		<include refid="head"/>
+		<include refid="where"/>
+		<include refid="orderby"/>
+		<include refid="limit"/>
+	</select>
+	<select id="findByParamTotal" resultType="long">
+		select count(*) from fund
+		<include refid="where"/>
 	</select>
 </mapper>

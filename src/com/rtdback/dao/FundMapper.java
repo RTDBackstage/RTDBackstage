@@ -77,4 +77,37 @@ public interface FundMapper {
 				@Param("order")String order,
 				@Param("sort")String sort
 			);
+	/**
+	 * 根据时间、类型模糊查询
+	 * @param logmin 起始时间
+	 * @param logmax 结束时间
+	 * @param type   类型
+	 * @param page   起始页
+	 * @param row    每页行数
+	 * @param order  升序、降序
+	 * @param sort   排序字段
+	 * @return
+	 */
+	public List<Fund> findByParam(
+			@Param("logmin") String logmin,
+			@Param("logmax") String logmax,
+ 			@Param("type") String type,
+ 			@Param("firm") String firm,
+ 			@Param("page")Integer page,
+			@Param("row")Integer row,
+			@Param("order")String order,
+			@Param("sort")String sort
+			);
+	/**
+	 * 模糊查询的总页数
+	 * @param logmin 起始时间
+	 * @param logmax 结束时间
+	 * @param type   类型
+	 * @return
+	 */
+	public long findByParamTotal(
+			@Param("logmin") String logmin,
+			@Param("logmax") String logmax,
+ 			@Param("type") String type,
+			@Param("firm") String firm);
 }

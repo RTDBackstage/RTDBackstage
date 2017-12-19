@@ -68,6 +68,7 @@ public class FundController {
 		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
 	}
 	
+	
 	/**
 	 * (首页显示)
 	 * 标类型：净值标,年化率：前3

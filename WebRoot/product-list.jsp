@@ -27,8 +27,9 @@
 					<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
 					-
 					<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-					<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
-					<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
+					<input type="text" name="" id="ptype" placeholder=" 产品类型" style="width:200px" class="input-text">			
+					<input type="text" name="" id="pname" placeholder=" 产品名称" style="width:200px" class="input-text">
+					<button name="" id="" class="btn btn-success" type="submit" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 				</div>
 				<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','product-add.jsp')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 				<div class="mt-20">
@@ -139,6 +140,17 @@ $('.table-sort').dataTable({
 	  {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
 	]
 });
+
+/* 搜索产品 */
+function search(){
+	var logmin = $("#logmin")
+	var logmax = $("#logmax")
+	var ptype = $("#ptype")
+	var pname = $("#pname")
+	$.ajax({
+		
+	})
+}
 /*图片-添加*/
 function product_add(title,url){
 	var index = layer.open({
