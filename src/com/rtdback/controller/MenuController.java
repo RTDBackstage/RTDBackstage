@@ -61,11 +61,17 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping(value = "/menu/index/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> index(@PathVariable("id") Integer id) {
-
-		List<Integer> list = menuService.loadAccountMenu(id);
+	public ResponseEntity<?> index(@PathVariable("id") Integer id,HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("text/html;charset=UTF-8");
+	    Account account = (Account) request.getSession().getAttribute("account");
 		
-		List<Menu> menus = menuService.loadTopMenu();
+		List<Integer> list = menuService.loadAccountMenu(account.getId());
+		List<Menu> menus= null;
+		if(id!=0 ){
+			menus = menuService.loadIdTopMenu(id);
+		}else {
+			 menus = menuService.loadTopMenu();
+		}
 
 		List<MenuNode> nodelist = new ArrayList<MenuNode>();
 		for (Menu menu : menus) {
