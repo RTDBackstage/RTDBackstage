@@ -27,6 +27,8 @@ $(()=>{
 			"answer3":$("#answer3").val(),
 		}
 		
+		console.log("进入add"+data.tostring())
+		
 		$.ajax({
 			url:URL+"account/add",
 			type:"post",

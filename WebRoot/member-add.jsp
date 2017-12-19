@@ -178,7 +178,7 @@
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<button id="btnadd" class="btn btn-primary radius" type="button">&nbsp;&nbsp;提交&nbsp;&nbsp</button>
+				<button id="btnadd" class="btn btn-primary radius" type="button">&nbsp;&nbsp;提交&nbsp;&nbsp;</button>
 			</div>
 		</div>
 	</form>
