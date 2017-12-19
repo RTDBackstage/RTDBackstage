@@ -2,8 +2,6 @@ package com.rtdback.service;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -21,20 +19,8 @@ public class AccountService {
 	@Resource(name ="accountMapper")
 	private AccountMapper accountMapper;
 	
-	//根据用户名，密码查询
 	public Account login(String name,String password){
 		return accountMapper.login(name, password);
-	}
-	
-	//查询所有
-	public List<Account> find(){
-		return accountMapper.find();
-	}
-	
-	//添加用户
-	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public int add(Account account){
-		return accountMapper.add(account);
 	}
 	
 }
