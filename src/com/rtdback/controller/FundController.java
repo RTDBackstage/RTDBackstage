@@ -89,6 +89,7 @@ public class FundController {
 	public ResponseEntity<List<Fund>> findAll(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		List<Fund> funds = fundService.findAll();
+		session.setAttribute("funds", funds);
 		System.out.println(funds.toString());
 		return new ResponseEntity<List<Fund>>(funds,HttpStatus.OK);
 	}
