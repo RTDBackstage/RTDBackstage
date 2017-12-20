@@ -16,7 +16,7 @@ public class FundTest {
 	public void findByParam(){
 		Pager<Fund> pager = fundService.findByParam("2017-12-01", "2017-12-11", "标","融资", 2, 5, "time", "desc");
 		for (Fund fund : pager.getRows()) {
-			System.out.println(fund.getAnnualRate());
+			System.out.println(fund.getId());
 		}
 		
 	}

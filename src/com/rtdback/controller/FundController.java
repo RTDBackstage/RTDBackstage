@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -60,7 +63,7 @@ public class FundController {
 	
 	/**
 	 * 展示某标详细信息（根据id查询）
-	 * test:127.0.0.1:8086/RTD/fund/findById/{id}
+	 * http://127.0.0.1:8080/RTDBackstage/fund/findById/{id}
 	 */
 	@RequestMapping(value="/fund/findById/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Fund> findById(@PathVariable long id){
@@ -68,6 +71,27 @@ public class FundController {
 		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
 	}
 	
+	/*public ResponseEntity<fund> findByParam(
+			@RequestParam(value="logmin",required=false)String logmin,
+			@RequestParam(value="logmax",required=false)String logmax,
+			@RequestParam(value="type",required=false)String type,
+			@RequestParam(value="firm",required=false)String firm,
+			@RequestParam(value="page",required=false)Integer page			
+			){
+		
+	}*/
+	
+	/**
+	 * 查询所有
+	 * http://127.0.0.1:8080/RTDBackstage/fund/findAll
+	 */
+	@RequestMapping(value="/fund/findAll",method=RequestMethod.GET)
+	public ResponseEntity<List<Fund>> findAll(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		List<Fund> funds = fundService.findAll();
+		System.out.println(funds.toString());
+		return new ResponseEntity<List<Fund>>(funds,HttpStatus.OK);
+	}
 	
 	/**
 	 * (首页显示)
@@ -75,7 +99,7 @@ public class FundController {
 	 * 标类型：信用标,年化率：前3
 	 * 标类型：债权转让,年化率：前4
 	 * 状态：投标中
-	 * test:127.0.0.1:8086/RTD/fund/indexShow/{type}
+	 * http://127.0.0.1:8080/RTDBackstage/fund/indexShow/{type}
 	 */
 	@RequestMapping(value="/fund/indexShow/{type}",method=RequestMethod.GET)
 	public ResponseEntity<List<Fund>> indexShow(@PathVariable("type")String type){
@@ -94,7 +118,7 @@ public class FundController {
 	 * 根据年化率排行
 	 * 分页显示，每页9条
 	 * 状态：融资中
-	 * test:127.0.0.1:8086/RTD/fund/findByTypePager/{type}
+	 * http://127.0.0.1:8080/RTDBackstage/fund/findByTypePager/{type}
 	 */
 	@RequestMapping(value="/fund/findByTypePager/{type}",method=RequestMethod.GET)
 	public ResponseEntity<?> findByTypePager(
