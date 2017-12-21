@@ -92,11 +92,7 @@ public interface FundMapper {
 			@Param("logmin") String logmin,
 			@Param("logmax") String logmax,
  			@Param("type") String type,
- 			@Param("firm") String firm,
- 			@Param("page")Integer page,
-			@Param("row")Integer row,
-			@Param("order")String order,
-			@Param("sort")String sort
+ 			@Param("firm") String firm
 			);
 	/**
 	 * 模糊查询的总页数

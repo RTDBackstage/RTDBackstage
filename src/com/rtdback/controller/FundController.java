@@ -70,15 +70,19 @@ public class FundController {
 		Fund fund = fundService.findById(id);
 		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
 	}
-	
-	public ResponseEntity<Fund> findByParam(
-			@RequestParam(value="logmin",required=false)String logmin,
-			@RequestParam(value="logmax",required=false)String logmax,
-			@RequestParam(value="type",required=false)String type,
-			@RequestParam(value="firm",required=false)String firm
+	@RequestMapping(value="/fund/findByParam/{logmin}&{logmax}&{type}&{firm}",method=RequestMethod.GET)
+	public ResponseEntity<?> findByParam(
+			@PathVariable("logmin")String logmin,
+			@PathVariable("logmax")String logmax,
+			@PathVariable("type")String type,
+			@PathVariable("firm")String firm,
+			HttpServletRequest request
 			){
-		Fund fund = null;
-		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
+		/*System.out.println(logmin+" "+logmax+" "+type+" "+firm);*/
+		HttpSession session = request.getSession();
+		List<Fund> funds = fundService.findByParam(logmin, logmax, type, firm);
+		session.setAttribute("funds", funds);
+		return new ResponseEntity<List<Fund>>(funds,HttpStatus.OK);
 	}
 	
 	/**

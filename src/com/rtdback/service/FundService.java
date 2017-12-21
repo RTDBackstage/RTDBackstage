@@ -92,19 +92,8 @@ public class FundService {
 		return pager;
 	}
 	
-	public Pager<Fund> findByParam(String logmin,String logmax,String type,String firm,Integer page,Integer row,String order,String sort){
-		Pager<Fund> pager = new Pager<Fund>();
-		pager.setTotal(fundMapper.findByParamTotal(logmin, logmax, type,firm));
-		//总页数
-		long pagerNum = (pager.getTotal()%row==0)?pager.getTotal()/row:pager.getTotal()/row+1;
-		pager.setPagerNum(pagerNum);
-		if(page<=0){
-			page = 1;
-		}else if(page > pager.getPagerNum()){
-			page = (int)pager.getPagerNum();
-		}
-		page = (page - 1) * row;
-		pager.setRows(fundMapper.findByParam(logmin, logmax, type, firm, page, row, order, sort));
-		return pager;
+	public List<Fund> findByParam(String logmin,String logmax,String type,String firm){
+		return fundMapper.findByParam(logmin, logmax, type, firm);
+		
 	}
 }

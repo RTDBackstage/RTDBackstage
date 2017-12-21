@@ -54,8 +54,6 @@
 	<select id="findByParam" resultMap="funds">
 		<include refid="head"/>
 		<include refid="where"/>
-		<include refid="orderby"/>
-		<include refid="limit"/>
 	</select>
 	<select id="findByParamTotal" resultType="long">
 		select count(*) from fund
