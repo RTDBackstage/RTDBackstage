@@ -16,6 +16,22 @@ public class MenuTest {
 
 	private MenuService menuService;
 	
+	@Test
+	public void childMenuByFatherName(){
+		List<Menu> menus = menuService.childMenuByFatherName("产品管理");
+		for(Menu menu :menus){
+			System.out.println(menu.getName());
+		}
+	}
+	
+	@Test
+	public void findElevl(){
+		List<String> menus = menuService.findElevl();
+		for (int i = 0; i < menus.size(); i++) {
+			System.out.println(i);
+		}
+	}
+	
 	//根据id查询父菜单
 	@Test
 	public void loadIdMenu(){

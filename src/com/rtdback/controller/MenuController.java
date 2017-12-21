@@ -1,5 +1,7 @@
 package com.rtdback.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,13 @@ public class MenuController {
 	@Autowired
 	private MenuService menuService;
 
+	@RequestMapping(value = "/menu/childMenuByFatherName/{name}",method=RequestMethod.GET)
+	public ResponseEntity<?> childMenuByFatherName(@PathVariable("name")String name){
+		List<Menu> menus = menuService.childMenuByFatherName(name);
+		return new ResponseEntity<List<Menu>>(menus,HttpStatus.OK);
+	}
+	
+	
 	/**
 	 * 
 	 * test:http://localhost:8080/RTDBackstage/menu/topMenu/2
@@ -60,31 +69,66 @@ public class MenuController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value = "/menu/index/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> index(@PathVariable("id") Integer id,HttpServletRequest request, HttpServletResponse response) {
-		response.setContentType("text/html;charset=UTF-8");
-	    Account account = (Account) request.getSession().getAttribute("account");
+	@RequestMapping(value = "/menu/index", method = RequestMethod.GET)
+	public ResponseEntity<?> index(HttpServletRequest request) {
 		
-		List<Integer> list = menuService.loadAccountMenu(account.getId());
-		List<Menu> menus= null;
-		if(id!=0 ){
-			menus = menuService.loadIdTopMenu(id);
+		Account account = (Account) request.getSession().getAttribute("account");
+		
+		List<Integer> list = null;
+		if(account != null){
+			//根据用户id查询该用户下的父菜单的编号
+			list = menuService.loadAccountMenu(account.getId());
+			System.out.println(list.toString());
+		}
+		
+		//加载所有的节点信息
+		List<Menu> menus= menuService.loadTopMenu();
+		
+		List<List<Menu>> childMenu =new ArrayList<List<Menu>>();
+		if (list != null) {
+			for (Integer i :list) {
+				List<Menu> menu2 =menuService.loadChildMenu(i);
+				childMenu.add(menu2);
+			}
 		}else {
-			 menus = menuService.loadTopMenu();
+			for(Menu menu :menus){
+				List<Menu> menu2 = menuService.loadChildMenu(menu.getId());
+				childMenu.add(menu2);
+			}
 		}
 
+		//提取指定数据，放入MenuNode
 		List<MenuNode> nodelist = new ArrayList<MenuNode>();
+		MenuNode node =null;
 		for (Menu menu : menus) {
-			if (list.contains(menu.getId())) {
-				MenuNode node = new MenuNode();
+			node = new MenuNode();
+			if(list != null){
+				if (list.contains(menu.getId())) {
+					node.setId(menu.getId());
+					node.setName(menu.getName());
+					node.setSeq(menu.getSeq());
+					nodelist.add(node);
+				}
+			}else {
 				node.setName(menu.getName());
-				node.setParentid(menu.getId());
+				node.setId(menu.getId());
 				node.setSeq(menu.getSeq());
-				node.setUrl(menu.getUrl());
-				node.setStatus(menu.getStatus());
 				nodelist.add(node);
 			}
 		}
+		
+		for(List<Menu> menus2 :childMenu){
+			for(Menu menu :menus2){
+				node = new MenuNode();
+				node.setId(menu.getId());
+				node.setParentid(menu.getParentid());
+				node.setChildName(menu.getName());
+				node.setSeq(menu.getSeq());
+				node.setUrl(menu.getUrl());
+				nodelist.add(node);
+			}
+		}
+		
 
 		return new ResponseEntity<List<MenuNode>>(nodelist,HttpStatus.OK);
 	}

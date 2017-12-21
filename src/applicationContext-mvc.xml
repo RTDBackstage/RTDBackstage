@@ -11,7 +11,23 @@
 	<context:component-scan base-package="com.**.controller"/>
 	
 	<!-- 用来注册Bean实例，以便来处理请求和异常解析器等 -->
-	<mvc:annotation-driven/>
+	<!--用来注册Bean的实例，以便用来处理请求、处理异常解析器等 -->
+  <mvc:annotation-driven>
+    <!-- 处理responseBody 里面日期类型 -->
+    <mvc:message-converters>
+      <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="objectMapper">
+          <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+            <property name="dateFormat">
+              <bean class="java.text.SimpleDateFormat">
+                <constructor-arg type="java.lang.String" value="yyyy-MM-dd"/>
+              </bean>
+            </property>
+          </bean>
+        </property>
+      </bean>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
 	
 	<!-- 静态资源和*.jsp都在根路径下 -->
 	<mvc:resources location="/" mapping="/resources/**"/>

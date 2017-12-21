@@ -11,6 +11,18 @@ import com.rtdback.pojo.Menu;
 
 @Repository("menuMapper")
 public interface MenuMapper {
+	
+	//根据父节点名查询所有 -- 点击父节点加载子节点
+	@Select("select * from menu where parentid = (select id from menu where name = #{name})")
+	List<Menu> childMenuByFatherName(@Param("name")String name);
+	
+	//根据rm的角色编号roleid查询菜单名 
+	@Select("select rm.roleid, m.name from menu m,role_menu rm WHERE  rm.menuid = m.id")
+	List<String> findChildElevl();
+	
+	//用户权限不同，显示不同的菜单编号及身份 
+	@Select("select a.id ,a.username,r.name ,r.introduced from account a, account_role ar,role r WHERE  a.id = ar.accountid and ar.roleid = r.id")
+	List<String> findElevl();
 
 	//获取登陆用户的子节点编号
 	@Select("select rm.menuid from role_menu rm,role r,account_role ar WHERE ar.roleid = r.id and r.id = rm.roleid and ar.accountid = #{accountid}")

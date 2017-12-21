@@ -1,6 +1,11 @@
 package com.rtdback.pojo;
 import java.util.Date;
 
+import javax.annotation.Resource;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 public class Account {
 
 	private Integer id;
@@ -13,7 +18,9 @@ public class Account {
 	private String sex;
 	private Integer age;
 	private String photo;
+	@NumberFormat(pattern="########.00")
 	private Double remaining;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date time;
 	private String paynum;
 	private String askcode;
