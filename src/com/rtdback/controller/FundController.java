@@ -71,15 +71,15 @@ public class FundController {
 		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
 	}
 	
-	/*public ResponseEntity<fund> findByParam(
+	public ResponseEntity<Fund> findByParam(
 			@RequestParam(value="logmin",required=false)String logmin,
 			@RequestParam(value="logmax",required=false)String logmax,
 			@RequestParam(value="type",required=false)String type,
-			@RequestParam(value="firm",required=false)String firm,
-			@RequestParam(value="page",required=false)Integer page			
+			@RequestParam(value="firm",required=false)String firm
 			){
-		
-	}*/
+		Fund fund = null;
+		return new ResponseEntity<Fund>(fund,HttpStatus.OK);
+	}
 	
 	/**
 	 * 查询所有
