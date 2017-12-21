@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <script>
+
 	const URL = "http://localhost:8080/RTDBackstage/"
+$(()=>{
 	
-	$(() => {
-		//$("dl").style.display="none";
-		$("dl").css("display","none");
-		
-		// 查询所有数据
+	$("dl").css("display","none");
+
+	// 查询所有数据
 		$.ajax({
 			url : URL + "menu/index",
 			type : "get",
@@ -18,17 +18,27 @@
 					
 					$.each(data,(i,item)=>{
 						//将数据添加到ab标签，显示父菜单
-						$("dl")[i].style.display="block";
-						$("ab")[i].append(item.name);
+						//$("dl")[i].style.display="block";
+						$("dl").css("display","block")
+						$("ab")[i].append(item.name)
 					})
-				}
+			}
 		})
-		
-		var fatherMenu = $(".Hui-aside #tree dl dt ab");
-		for(i=0;i<=fatherMenu.length;i++){
-			console.log("这是父节点的数量:"+fatherMenu.length);
-			
+	
+})
+
+window.onload = function(){
+	var fatherMenu = $(".Hui-aside #tree dl dt ab");
+	//获取点击的名字-判断点击的下标
+	for(i=0;i<fatherMenu.length;i++){
+			//console.log("这是父节点的数量:"+fatherMenu.length);
+			fatherMenu[i].index = i;
+			/* fatherMenu[i].click(function(){
+				console.log(this.innerHTML)
+				alert(this.innerHTML)
+			}) */
 			fatherMenu[i].onclick=function(){
+					$("li a").remove();
 					var fathername = this.innerHTML;
 					console.log("这是父节点名:"+fathername)
 					$.ajax({
@@ -36,47 +46,18 @@
 						type:"get",
 						dataType:"json",
 						success:function(data){
-							console.log("这是子节点名:"+JSON.stringify(data))
+						
 							$.each(data,(i,item)=>{
-								//var childMenu = $(".Hui-aside #tree dl dd ul li");
-									$(".Hui-aside #tree dl dd ul li").append(`<a href="`+item.url+`" title="资讯管理">`+item.name+`</a>`)
-								/* for(j=0;j<childMenu.length;j++){
-									console.log("这是子节点的数量:"+childMenu.length);
-								} */
+								var childMenu = $(".Hui-aside #tree dl dd ul");
+								console.log("这是子节点名:"+item.name)
+								var text =`<li><a href="`+item.url+`" title="`+item.name+`">`+item.name+`</a></li>`
+								childMenu.append(text)
+							})
+						}
 					})
-				}
-			})
+			}
 		}
-	}
-		
-	})/*$(()=>{  */	
-	
-		
-		
-		
-		
-		
-		/* $(".Hui-aside #tree dl dt ").click(()=>{
-			var fatherMenu = $(".Hui-aside #tree dl dt ab").html()
-			
-			console.log("这是点击的值:"+fatherMenu)
-			
-			$.ajax({
-				url : URL +"menu/childMenuByFatherName/"+fatherMenu,
-				type:"get",
-				dataType:"json",
-				success:function(data){
-					$.each(data,(i,item)=>{
-						console.log(JSON.stringify(data))					
-						$(".Hui-aside #tree dl dd ul li").append(`<a href="`+item.url+`" title="资讯管理">`+item.name+`</a>`)
-					})
-				}
-			})
-		}) *//* click(()=>{ */
-		
-	
-	
-	
+}
 	
 </script>
 
@@ -115,6 +96,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul id="li3">
+					<li> </li>
 					<!-- <li><a href="product-brand.jsp" title="品牌管理">品牌管理</a></li>
 					<li><a href="product-category.jsp" title="分类管理">分类管理</a></li>
 					<li><a href="product-list.jsp" title="产品管理">产品管理</a></li> -->
@@ -126,6 +108,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul id="li3">
+					<li> </li>
 					<!-- <li><a href="http://h-ui.duoshuo.com/admin/" title="评论列表">评论列表</a></li>
 					<li><a href="feedback-list.jsp" title="意见反馈">意见反馈</a></li> -->
 				</ul>
@@ -136,6 +119,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul id="li4">
+				    <li> </li>
 					<!-- <li><a href="member-list.jsp" title="会员列表">会员列表</a></li>
 					<li><a href="member-del.jsp" title="删除的会员">删除的会员</a></li>
 					<li><a href="member-level.jsp" title="等级管理">等级管理</a></li>
@@ -150,7 +134,8 @@
 			<dt><i class="Hui-iconfont">&#xe62d;</i><ab style="padding:15px"></ab>
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
-				<ul id="li5">
+				<ul id="li5"> 
+					<li> </li>
 					<!-- <li><a href="admin-role.jsp" title="角色管理">角色管理</a></li>
 					<li><a href="admin-permission.jsp" title="权限管理">权限管理</a></li>
 					<li><a href="admin-list.jsp" title="管理员列表">管理员列表</a></li> -->
@@ -162,6 +147,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul id="li6">
+					<li> </li>
 					<!-- <li><a href="charts-1.jsp" title="折线图">折线图</a></li>
 					<li><a href="charts-2.jsp" title="时间轴折线图">时间轴折线图</a></li>
 					<li><a href="charts-3.jsp" title="区域图">区域图</a></li>
@@ -177,6 +163,7 @@
 			<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul id="li7">
+					<li> </li>
 					<!-- <li><a href="system-base.jsp" title="系统设置">系统设置</a></li>
 					<li><a href="system-category.jsp" title="栏目管理">栏目管理</a></li>
 					<li><a href="system-data.jsp" title="数据字典">数据字典</a></li>

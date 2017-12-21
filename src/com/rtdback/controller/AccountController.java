@@ -91,7 +91,7 @@ public class AccountController {
 	}
 
 	/**
-	 * test:localhost:8080/RTDBackstage/account/login/wushuoyouting&12345 用户登陆
+	 * test:localhost:8080/RTDBackstage/account/login/wushuoyouting&12345   用户登陆
 	 */
 	@RequestMapping(value = "/account/login/{username}&{password}", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<?>> login(@PathVariable("username") String username,

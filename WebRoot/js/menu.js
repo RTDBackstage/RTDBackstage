@@ -37,7 +37,7 @@ $(() => {
 					dataType:"json",
 					success:function(data){
 						$.each(data,(i,item)=>{
-							console.log(JSON.stringify(data))					
+							//console.log(JSON.stringify(data))					
 							$(".Hui-aside #tree dl dd ul li").append(`<a href="`+item.url+`" title="资讯管理">`+item.name+`</a>`)
 						})
 					}

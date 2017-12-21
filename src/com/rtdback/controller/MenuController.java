@@ -125,7 +125,7 @@ public class MenuController {
 				node.setChildName(menu.getName());
 				node.setSeq(menu.getSeq());
 				node.setUrl(menu.getUrl());
-				nodelist.add(node);
+				//nodelist.add(node);
 			}
 		}
 		
