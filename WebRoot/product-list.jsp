@@ -49,15 +49,15 @@
 							</tr>
 						</thead>
 						<tbody id="product" >
-							<c:forEach var="fund" items="${pageScope.funds}">
+							<c:forEach var="fund" items="${sessionScope.funds}">
 							<tr class="text-c va-m">
 								<td><input name="" type="checkbox" value=""></td>
 								<td>${fund.logo}</td>
 								<td>${fund.type}</td>
 								<td>${fund.annualRate}%</td>
 								<td>${fund.credit}</td>
-								<td><fmt:formatDate value="${fund.firm}" pattern="yyyy-MM-dd"/> </td>
-								<td>${fund.time}</td>
+								<td>${fund.firm}</td>
+								<td><fmt:formatDate value="${fund.time}" pattern="yyyy-MM-dd"/> </td>
 								<td class="td-status">
 								<span class="label label-success radius">${fund.state}</span>
 								</td>
@@ -143,10 +143,10 @@ $(document).ready(function(){
 	t = $.fn.zTree.init(t, setting, zNodes);
 	var zTree = $.fn.zTree.getZTreeObj("tree");
 	/* zTree.selectNode(zTree.getNodeByParam("id",'11')); */
-	$.ajax({
+	/* $.ajax({
 		url:URL+"fund/findAll",
 		type:"get"
-	});
+	}); */
 	
 });
 
