@@ -33,10 +33,6 @@ window.onload = function(){
 	for(i=0;i<fatherMenu.length;i++){
 			//console.log("这是父节点的数量:"+fatherMenu.length);
 			fatherMenu[i].index = i;
-			/* fatherMenu[i].click(function(){
-				console.log(this.innerHTML)
-				alert(this.innerHTML)
-			}) */
 			fatherMenu[i].onclick=function(){
 					$("li a").remove();
 					var fathername = this.innerHTML;

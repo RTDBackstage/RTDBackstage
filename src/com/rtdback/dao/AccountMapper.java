@@ -10,12 +10,20 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-import com.mysql.fabric.xmlrpc.base.Data;
 import com.rtdback.pojo.Account;
+import com.rtdback.pojo.AccountNode;
 
 @Repository("accountMapper")
 public interface AccountMapper {
 
+	//角色权限汇总菜单
+	@Select("select a.id, m.name from account a ,account_role ar,role_menu rm,menu m where a.id = ar.accountid  and ar.roleid = rm.roleid and rm.menuid = m.id and a.id = #{id}")
+	List<AccountNode> findMenuName(@Param("id")Integer id);
+	
+	//菜单角色权限
+	@Select("select a.id,a.username,r.name,r.introduced from account a,account_role ar,role r where a.id = ar.accountid and ar.roleid = r.id and a.id=#{id}")
+	List<AccountNode> findAccount(@Param("id")Integer id);
+	
 	//根据id查询所有 在修改
 	@Select("select * from account where id = #{id}")
 	Account findById(@Param("id")Integer id);

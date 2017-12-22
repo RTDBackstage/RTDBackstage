@@ -1,5 +1,11 @@
 package com.rtdback.pojo;
 
+/**
+ * 这是菜单导航列表   
+ * 这里从menu后台菜单表，account用户表 提取了必要的数据
+ * @author Administrator
+ *
+ */
 public class MenuNode {
 	
 	private Integer id;// 编号

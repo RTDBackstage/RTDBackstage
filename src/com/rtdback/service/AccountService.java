@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mysql.fabric.xmlrpc.base.Data;
 import com.rtdback.dao.AccountMapper;
 import com.rtdback.pojo.Account;
+import com.rtdback.pojo.AccountNode;
 
 @Service("accountService")
 @Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
@@ -23,6 +24,17 @@ public class AccountService {
 	@Resource(name = "accountMapper")
 	private AccountMapper accountMapper;
 	
+	//角色权限汇总菜单
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public List<AccountNode> findMenuName(Integer id){
+		return accountMapper.findMenuName(id);
+	}
+	
+	//菜单角色权限
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public List<AccountNode> findAccount(Integer id){
+		return accountMapper.findAccount(id);
+	}
 	
 	//修改用户
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)

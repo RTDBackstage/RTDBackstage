@@ -42,7 +42,8 @@
 				</div>
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;" onclick="datadel()"
-						class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>
+						class="btn btn-danger radius"> 
+						<i class="Hui-iconfont">&#xe6e2;</i>
 							批量删除
 					</a> <a href="member-add.jsp" class="btn btn-primary radius"> <i
 							class="Hui-iconfont">&#xe600;</i> 添加用户

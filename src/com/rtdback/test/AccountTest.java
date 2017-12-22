@@ -13,11 +13,31 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.rtdback.pojo.Account;
+import com.rtdback.pojo.AccountNode;
 import com.rtdback.service.AccountService;
 
 public class AccountTest {
 
 	private AccountService accountService;
+	
+	//角色权限汇总菜单
+	@Test
+	public void findMenuName(){
+		List<AccountNode> accountNodes = accountService.findMenuName(1);
+		for(AccountNode accountNode :accountNodes){
+			System.out.println(accountNode.getMenuname());
+		}
+	}
+	
+	
+	//菜单角色权限
+	@Test
+	public void findAccount(){
+		List<AccountNode> accountNodes = accountService.findAccount(1);
+		for(AccountNode accountNode :accountNodes){
+			System.out.println(accountNode.getUsername()+".."+accountNode.getIntroduced());
+		}
+	}
 	
 	//多条件查询
 	@Test
