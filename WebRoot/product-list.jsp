@@ -32,7 +32,14 @@
 					<input type="text" name="" id="pname" placeholder=" 产品名称" style="width:200px" class="input-text">
 					<button name="" id="" class="btn btn-success" type="submit" onclick="search()"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 				</div>
-				<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','product-add.jsp')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span></div>
+				<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+				<span class="l">
+					<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
+						<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
+					<a id="productAdd" class="btn btn-primary radius" href="javascript:;">
+						<i class="Hui-iconfont">&#xe600;</i> 添加产品</a>
+				</span>
+				</div>
 				<div class="mt-20">
 					<table class="table table-border table-bordered table-bg table-hover table-sort">
 						<thead>
@@ -110,7 +117,13 @@ var setting = {
 				zTree.expandNode(treeNode);
 				return false;
 			} else {
-				demoIframe.attr("src",treeNode.file + ".jsp");
+				$.ajax({
+					url:URL+treeNode.file+"/findAll",
+					success:function(){
+						$("#productAdd").css("onclick","product_add('添加产品',"+treeNode.file+"'-add.jsp')");
+/* 						window.location.reload(); 
+ */					}
+				})	
 				return true;
 			}
 		}
@@ -118,16 +131,12 @@ var setting = {
 };
 
 var zNodes =[
-	{ id:1, pId:0, name:"一级分类", open:true},
-	{ id:11, pId:1, name:"二级分类"},
-	{ id:111, pId:11, name:"三级分类"},
-	{ id:112, pId:11, name:"三级分类"},
-	{ id:113, pId:11, name:"三级分类"},
-	{ id:114, pId:11, name:"三级分类"},
-	{ id:115, pId:11, name:"三级分类"},
-	{ id:12, pId:1, name:"二级分类 1-2"},
-	{ id:121, pId:12, name:"三级分类 1-2-1"},
-	{ id:122, pId:12, name:"三级分类 1-2-2"},
+	{ id:1, pId:0, name:"产品分类", open:true},
+	{ id:11, pId:1, name:"理财"},
+	{ id:111, pId:11, name:"融资",file:"fund"},
+	{ id:112, pId:11, name:"投资"},
+	{ id:12, pId:1, name:"借钱"},
+	{ id:121, pId:12, name:"贷款"}
 ];
 
 var code;
@@ -142,12 +151,7 @@ $(document).ready(function(){
 	var t = $("#treeDemo");
 	t = $.fn.zTree.init(t, setting, zNodes);
 	var zTree = $.fn.zTree.getZTreeObj("tree");
-	/* zTree.selectNode(zTree.getNodeByParam("id",'11')); */
-	/* $.ajax({
-		url:URL+"fund/findAll",
-		type:"get"
-	}); */
-	
+	/* zTree.selectNode(zTree.getNodeByParam("id",'11')); */	
 });
 
 $('.table-sort').dataTable({
